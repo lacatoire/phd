@@ -5,6 +5,7 @@ class JsonIndex
 {
     private const array ALWAYS_INCLUDE_ELEMENTS = [
         'refentry',
+        'reference',
         'stream_wrapper',
         'phpdoc:classref',
         'phpdoc:exceptionref',
