@@ -56,6 +56,14 @@ $render = new TestRender(new Reader($outputHandler), $config, $format);
 $render->run();
 ?>
 --EXPECTF--
+%s
+	Whitespace found in <function> tag content, this should be fixed in the XML source
+%s
+	Whitespace found in <methodname> tag content, this should be fixed in the XML source
+%s
+	Whitespace found in <classname> tag content, this should be fixed in the XML source
+%s
+	Whitespace found in <varname> tag content, this should be fixed in the XML source
 Filename: whitespace_in_tags_link_rendering.html
 Content:
 <div id="whitespace_in_tags_link_rendering" class="chapter">

@@ -525,14 +525,14 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
     }
 
     public function format_varname_text($value, $tag) {
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
         $var = $value;
         if (($pos = strpos($value, "[")) !== false) {
             $var = substr($value, 0, $pos);
         }
         if (($filename = $this->getVarnameLink($var)) !== null && !in_array($var, $this->cchunk["refname"])) {
             $href = $this->chunked ? $filename.$this->ext : "#$filename";
-            return '<var class="varname"><a href="'.$href.'" class="classname">' .$value. '</a></var>';
+            return '<var class="varname"><a href="'.$href.'" class="varname">' .$value. '</a></var>';
         }
         return '<var class="varname">' .$value. '</var>';
 
@@ -679,7 +679,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
     }
 
     public function format_type_text($type, $tagname) {
-        $type = trim($type);
+        $type = Format::trimValue($type, $tagname);
         $t = strtr($this->normalizeFQN($type), ["_" => "-", "\\" => "-"]);
 
         switch($t) {
@@ -807,7 +807,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
     }
 
     public function format_classsynopsis_fieldsynopsis_varname_text($value, $tag) {
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
         if ($this->cchunk["classsynopsis"]["classname"]) {
           if (strpos($value, "::") === false && strpos($value, "->") === false) {
                 $value = $this->cchunk["classsynopsis"]["classname"] . "->" . $value;
@@ -818,7 +818,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
         return $this->format_varname_text($display_value, $tag);
     }
     public function format_classsynopsis_methodsynopsis_methodname_text($value, $tag) {
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
         if ($this->cchunk["classsynopsis"]["classname"]) {
           if (strpos($value, "::") === false && strpos($value, "->") === false) {
                 $value = $this->cchunk["classsynopsis"]["classname"] . "::" . $value;
@@ -849,7 +849,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
             return $this->TEXT($value);
         }
 
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
 
         static $non_functions = array(
             "echo" => true, "print" => true,
@@ -913,7 +913,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
     }
 
     public function format_classname_text($value, $tag) {
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
         if (($filename = $this->getClassnameLink($this->normalizeFQN($value))) !== null && $this->cchunk["class_name_ref"] !== strtolower($value)) {
             $href = $this->chunked ? $filename.$this->ext : "#$filename";
             return '<a href="'.$href. '" class="' .$tag. '">' .$value. '</a>';
@@ -922,7 +922,7 @@ abstract class Package_PHP_XHTML extends Package_Generic_XHTML {
     }
 
     public function format_enumidentifier_text($value, $tag) {
-        $value = trim($value);
+        $value = Format::trimValue($value, $tag);
         if (!str_contains($value, '::')) {
             return $value;
         }
