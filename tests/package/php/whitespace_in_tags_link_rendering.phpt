@@ -84,7 +84,7 @@ Content:
  <div class="section">
   <p class="para">4. Varname with leading/trailing whitespace</p>
   <p class="para">
-   <var class="varname"><a href="reserved.variables.server.html" class="classname">_SERVER</a></var>
+   <var class="varname"><a href="reserved.variables.server.html" class="varname">_SERVER</a></var>
   </p>
  </div>
 
