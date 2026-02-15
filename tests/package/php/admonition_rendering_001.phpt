@@ -56,4 +56,14 @@ Content:
   </div>
  </div>
 
+ <div class="section">
+  <p class="para">6. Warning with constructorsynopsis</p>
+  <div class="warning"><h5 class="warning">Warning</h5>
+   <p class="para">This constructor is deprecated:</p>
+   <div class="constructorsynopsis dc-description"><span class="modifier">public</span>
+    <span class="methodname"><strong>ClassName::__construct</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$param</code></span>)</div>
+
+  </div>
+ </div>
+
 </div>

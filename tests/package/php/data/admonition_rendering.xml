@@ -36,4 +36,16 @@
   </important>
  </section>
 
+ <section>
+  <para>6. Warning with constructorsynopsis</para>
+  <warning>
+   <para>This constructor is deprecated:</para>
+   <constructorsynopsis>
+    <modifier>public</modifier>
+    <methodname>ClassName::__construct</methodname>
+    <methodparam><type>string</type><parameter>param</parameter></methodparam>
+   </constructorsynopsis>
+  </warning>
+ </section>
+
 </chapter>
