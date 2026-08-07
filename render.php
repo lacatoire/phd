@@ -64,10 +64,17 @@ if (!$conf) {
     // Acronym expansions come from the translatable entity file in the
     // language checkout (e.g. en/, it/), languages without a
     // translated copy fall back to the English one.
-    $acronymFilename = dirname($config->xmlRoot) . DIRECTORY_SEPARATOR . $config->language
+    // The language checkouts sit next to the doc-base one, and xmlRoot is the
+    // directory of the manual file passed to -d, which lives at the root of
+    // doc-base. doc-base is moving every file its build generates into a
+    // temp/ subdirectory, manual file included; when that lands, this becomes
+    // dirname(dirname($config->xmlRoot)).
+    $docsRoot = dirname($config->xmlRoot);
+
+    $acronymFilename = $docsRoot . DIRECTORY_SEPARATOR . $config->language
                         . DIRECTORY_SEPARATOR . 'entities' . DIRECTORY_SEPARATOR . 'entities.acronyms.ent';
     if (!is_file($acronymFilename)) {
-        $acronymFilename = dirname($config->xmlRoot) . DIRECTORY_SEPARATOR . 'en'
+        $acronymFilename = $docsRoot . DIRECTORY_SEPARATOR . 'en'
                             . DIRECTORY_SEPARATOR . 'entities' . DIRECTORY_SEPARATOR . 'entities.acronyms.ent';
     }
     $config->init(array(

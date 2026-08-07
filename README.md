@@ -69,20 +69,20 @@ and run `configure.php`
 $ php doc-base/configure.php
 ```
 
-which will generate a `.manual.xml` file in the `doc-base` directory.
+which will generate a `.manual.xml` file in the `doc-base/temp` directory.
 
 To render the documentation in `xhtml` format
 into the default `./output/` directory:
 
 ```shell
-$ php phd/render.php -d doc-base/.manual.xml -P PHP -f xhtml
+$ php phd/render.php -d doc-base/temp/.manual.xml -P PHP -f xhtml
 ```
 
 `xhtml` files are standalone files that can be opened directly in a browser.
 To render the documentation in the same `php` format used on the `php.net` website:
 
 ```shell
-$ php phd/render.php -d doc-base/.manual.xml -P PHP -f php
+$ php phd/render.php -d doc-base/temp/.manual.xml -P PHP -f php
 ```
 
 Please refer to the appropriate section of the
